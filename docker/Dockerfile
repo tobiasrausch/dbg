@@ -75,6 +75,14 @@ RUN cd /opt \
     && make \
     && make install
 
+RUN useradd -ms /bin/bash app
 
-# by default /bin/sh is executed
-CMD ["/bin/sh"]
+WORKDIR /home/app
+
+COPY dbg.sh /home/app
+
+RUN chmod a+x /home/app/dbg.sh
+
+USER ${user}
+
+CMD ["/home/app/dbg.sh"]
