@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: hellopod
+  labels:
+    app: hello
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: ubuntu
+        image: ubuntu:trusty
+        command: ["/bin/bash", "-ec", "while :; do hostname; sleep 5; done"]
+
