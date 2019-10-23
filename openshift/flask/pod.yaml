@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flask
+  labels:
+    app: python
+    version: v1
+    role: flask
+spec:
+  containers:
+    - name: app
+      image: trausch/simple-flask:v1
+
+  
