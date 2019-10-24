@@ -80,6 +80,7 @@ RUN useradd -ms /bin/bash app
 WORKDIR /home/app
 
 COPY dbg.sh /home/app
+COPY 1000G_2504_high_coverage.fastq.index /home/app
 
 RUN chmod a+x /home/app/dbg.sh
 
